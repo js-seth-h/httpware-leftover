@@ -1,0 +1,29 @@
+{
+  "name": "hand-leftover",
+  "version": "0.0.0",
+  "description": "response 4xx 5xx, handover-plugin, compatible with connect",
+  "main": "hand-leftover.coffee",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/js-seth-h/hand-leftover.git"
+  },
+  "keywords": [
+    "handover",
+    "connect",
+    "404",
+    "505",
+    "4xx",
+    "5xx",
+    "error",
+    "handler"
+  ],
+  "author": "js.seth.h@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/js-seth-h/hand-leftover/issues"
+  },
+  "homepage": "https://github.com/js-seth-h/hand-leftover"
+}
