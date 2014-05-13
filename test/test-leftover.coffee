@@ -23,12 +23,13 @@ describe 'hand-leftover', ()->
   it 'should 500 ', (done)-> 
     server = http.createServer ho.make [
 #      ... something you need
-      (req,res,next)-> next new Error 'Error : Just Error' 
+      (req,res,next)-> next new Error 'Just Error' 
       leftover()
     ]
     request(server)
       .get('/')
       .expect(500)
+      .expect(/.*Just Error.*/)
       .end done 
 
   it 'should 404 with text', (done)-> 

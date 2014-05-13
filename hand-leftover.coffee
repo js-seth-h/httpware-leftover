@@ -10,7 +10,14 @@ leftover = (options = {})->
 leftover.send500 = (err, req, res, options)-> 
 
   opt = options['500'] || {}
-  html = "500 - Internal Error"
+  html = """
+<html>
+<body style='padding:20px;'>
+  <h1>#{err.toString()}</h1><em>Http Status : 500</em><pre style='margin: 15px'>#{err.stack}</pre>
+</body>
+</html>  
+
+  """
   
   if opt.html?
     html = opt.html
