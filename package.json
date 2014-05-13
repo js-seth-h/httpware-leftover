@@ -4,7 +4,8 @@
   "description": "response 4xx 5xx, handover-plugin, compatible with connect",
   "main": "hand-leftover.coffee",
   "scripts": {
-    "test": "mocha"
+    "test": "set TEST=true && mocha --compilers coffee:coffee-script/register   --reporter spec",
+    "start": "set TEST=true && set DEBUG=hand* && mocha --compilers coffee:coffee-script/register   --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -14,16 +15,22 @@
     "handover",
     "connect",
     "404",
-    "505",
+    "500",
     "4xx",
     "5xx",
-    "error",
-    "handler"
+    "error handler"
   ],
   "author": "js.seth.h@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/js-seth-h/hand-leftover/issues"
   },
-  "homepage": "https://github.com/js-seth-h/hand-leftover"
+  "homepage": "https://github.com/js-seth-h/hand-leftover",
+  "dependencies": {
+    "debug": "^0.8.1",
+    "handover": "^0.2.2"
+  },
+  "devDependencies": {
+    "supertest": "^0.12.1"
+  }
 }
