@@ -27,5 +27,16 @@ describe 'hand-leftover', ()->
     request(server)
       .get('/')
       .expect(500)
+      .end done 
+    
+  it 'should 404 ', (done)-> 
+
+    server = http.createServer ho.make [
+      leftover
+        '404':
+          html: "<h1> Page Not Found </h1>"
+    ]
+    request(server)
+      .get('/')
+      .expect(404) 
       .end done
- 

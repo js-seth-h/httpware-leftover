@@ -14,6 +14,12 @@ leftover.send500 = (err, req, res)->
 leftover.send404 = (req,res)->
   res.statusCode = 404
   res.end("404 - Page Not Found")
+leftover.send404ByOption = (req,res, options)->
+  opt = options['404']
+  html = opt.html
+  
+  res.statusCode = 404
+  res.end(html)
 
 
 module.exports = exports = leftover  
