@@ -11,17 +11,17 @@ describe 'hand-leftover', ()->
     
   it 'should 404 ', (done)-> 
 
-    server = http.createServer ho.make [
+    server = http.createServer ho [
 #      ... something you need
       leftover()
     ]
     request(server)
       .get('/')
       .expect(404) 
-      .end done
+      .end done 
 
   it 'should 500 ', (done)-> 
-    server = http.createServer ho.make [
+    server = http.createServer ho [
 #      ... something you need
       (req,res,next)-> next new Error 'Just Error' 
       leftover()
@@ -34,7 +34,7 @@ describe 'hand-leftover', ()->
 
   it 'should 404 with text', (done)-> 
 
-    server = http.createServer ho.make [
+    server = http.createServer ho [
 #      ... something you need
       leftover
         '404':
@@ -49,7 +49,7 @@ describe 'hand-leftover', ()->
     
   it 'should 404 with function', (done)-> 
 
-    server = http.createServer ho.make [
+    server = http.createServer ho [
 #      ... something you need
       leftover
         '404' :
@@ -63,7 +63,7 @@ describe 'hand-leftover', ()->
 
   it 'should 500 with text ', (done)-> 
 
-    server = http.createServer ho.make [
+    server = http.createServer ho [
       (req,res,next)-> next new Error 'Just Error' 
       leftover
         '500' :
@@ -76,7 +76,7 @@ describe 'hand-leftover', ()->
       .end done
   it 'should 500 with function ', (done)-> 
 
-    server = http.createServer ho.make [
+    server = http.createServer ho [
       (req,res,next)-> next new Error 'Just Error' 
       leftover
         '500' :

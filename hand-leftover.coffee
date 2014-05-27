@@ -1,7 +1,7 @@
-
-
+debug = require('debug') 'hand-leftover'
 leftover = (options = {})->
   return (err, req, res, next)->
+    debug 'leftover - err :', err 
     if err 
       return leftover.send500(err, req, res, options)  
 
@@ -9,6 +9,7 @@ leftover = (options = {})->
 
 leftover.send500 = (err, req, res, options)-> 
 
+  debug 'leftover ', 'send 500'
   opt = options['500'] || {}
   html = """
 <html>
@@ -32,6 +33,7 @@ leftover.send500 = (err, req, res, options)->
 
 leftover.send404 = (req,res, options)->
 
+  debug 'leftover ', 'send 404'
   opt = options['404'] || {}
   html = "404 - Page Not Found"
   
