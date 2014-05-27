@@ -1,6 +1,6 @@
 {
   "name": "hand-leftover",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "response 4xx 5xx, handover-plugin, compatible with connect",
   "main": "hand-leftover.coffee",
   "scripts": {
