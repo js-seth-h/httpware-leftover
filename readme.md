@@ -1,4 +1,4 @@
-# hand-leftover
+# httpware-leftover
 
 > At the end of call chain, it send 404 or 500(when error exists).
 > responsed html is customizable.
@@ -13,11 +13,11 @@
 
 # Why made this?
 
-[handover][ho] is fully compatible with connect's middleware.
+[flyway][ho] is fully compatible with connect's middleware.
 So, first my attempt is using [errorhandler][eh].
 but, in [errorhandler][eh] , 404(page not found) is also `Error` ( it means I have to throw `new Error '...'`)
 
-[ho]: https://www.npmjs.org/package/handover
+[ho]: https://www.npmjs.org/package/flyway
 [eh]: https://www.npmjs.org/package/errorhandler
 
 My opinion about 404 is differnt.
@@ -30,7 +30,7 @@ I need more flexible one.
 
  ```coffee 
 
-    server = http.createServer ho.make [
+    server = http.createServer flyway [
 #      ... something you need
       leftover()
     ]
@@ -41,7 +41,7 @@ basic usages.
 
  ```coffee 
 
-    server = http.createServer ho.make [
+    server = http.createServer flyway [
 #      ... something you need
       leftover
         '404':
@@ -54,7 +54,7 @@ static html text is possible.
 
  ```coffee  
 
-    server = http.createServer ho.make [
+    server = http.createServer flyway [
 #      ... something you need
       leftover
         '404' :
@@ -65,14 +65,14 @@ static html text is possible.
 function is possible too.
 
 ```coffee
-    server = http.createServer ho.make [
+    server = http.createServer flyway [
       (req,res,next)-> next new Error 'Just Error' 
       leftover
         '500' :
           html: '500'
     ] 
 # or 
-    server = http.createServer ho.make [
+    server = http.createServer flyway [
       (req,res,next)-> next new Error 'Just Error' 
       leftover
         '500' :

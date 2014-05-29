@@ -1,15 +1,18 @@
 {
-  "name": "hand-leftover",
-  "version": "0.2.2",
-  "description": "response 4xx 5xx, handover-plugin, compatible with connect",
-  "main": "hand-leftover.coffee",
+  "name": "httpware-leftover",
+  "version": "0.1.0",
+  "description": "send 4xx 5xx response, compatible with connect",
+  "main": "lib",
   "scripts": {
-    "test": "set TEST=true && mocha --compilers coffee:coffee-script/register   --reporter spec",
-    "start": "set TEST=true && set DEBUG=hand* && mocha --compilers coffee:coffee-script/register   --reporter spec"
+    "build": "coffee -c -b -o lib src  ",
+    "clean": "rm -r lib",
+    "prepublish": "npm run-script build",
+    "postpublish": "npm run-script clean",
+    "test": "set TEST=true && mocha --compilers coffee:coffee-script/register   --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/js-seth-h/hand-leftover.git"
+    "url": "git://github.com/js-seth-h/httpware-leftover.git"
   },
   "keywords": [
     "handover",
@@ -23,14 +26,14 @@
   "author": "js.seth.h@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/js-seth-h/hand-leftover/issues"
+    "url": "https://github.com/js-seth-h/httpware-leftover/issues"
   },
-  "homepage": "https://github.com/js-seth-h/hand-leftover",
+  "homepage": "https://github.com/js-seth-h/httpware-leftover",
   "dependencies": {
-    "debug": "^0.8.1",
-    "handover": "^0.4.3"
+    "debug": "^0.8.1"
   },
   "devDependencies": {
+    "flyway": "0.1.0-2",
     "supertest": "^0.12.1"
   }
 }

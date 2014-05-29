@@ -1,4 +1,5 @@
-debug = require('debug') 'hand-leftover'
+debug = require('debug') 'httpware-leftover'
+
 leftover = (options = {})->
   return (err, req, res, next)->
     debug 'leftover - err :', err 

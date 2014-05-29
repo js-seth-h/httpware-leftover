@@ -1,17 +1,17 @@
 request = require 'supertest'
 
 
-describe 'hand-leftover', ()->
+describe 'httpware-leftover', ()->
 
-  ho = require 'handover'
-  leftover = require '../hand-leftover'
+  flyway = require 'flyway'
+  leftover = require '../src'
   http = require 'http'
 
 
     
   it 'should 404 ', (done)-> 
 
-    server = http.createServer ho [
+    server = http.createServer flyway [
 #      ... something you need
       leftover()
     ]
@@ -21,7 +21,7 @@ describe 'hand-leftover', ()->
       .end done 
 
   it 'should 500 ', (done)-> 
-    server = http.createServer ho [
+    server = http.createServer flyway [
 #      ... something you need
       (req,res,next)-> next new Error 'Just Error' 
       leftover()
@@ -34,7 +34,7 @@ describe 'hand-leftover', ()->
 
   it 'should 404 with text', (done)-> 
 
-    server = http.createServer ho [
+    server = http.createServer flyway [
 #      ... something you need
       leftover
         '404':
@@ -49,7 +49,7 @@ describe 'hand-leftover', ()->
     
   it 'should 404 with function', (done)-> 
 
-    server = http.createServer ho [
+    server = http.createServer flyway [
 #      ... something you need
       leftover
         '404' :
@@ -63,7 +63,7 @@ describe 'hand-leftover', ()->
 
   it 'should 500 with text ', (done)-> 
 
-    server = http.createServer ho [
+    server = http.createServer flyway [
       (req,res,next)-> next new Error 'Just Error' 
       leftover
         '500' :
@@ -76,7 +76,7 @@ describe 'hand-leftover', ()->
       .end done
   it 'should 500 with function ', (done)-> 
 
-    server = http.createServer ho [
+    server = http.createServer flyway [
       (req,res,next)-> next new Error 'Just Error' 
       leftover
         '500' :
