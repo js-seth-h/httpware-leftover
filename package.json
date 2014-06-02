@@ -1,6 +1,6 @@
 {
   "name": "httpware-leftover",
-  "version": "0.1.0-1",
+  "version": "0.1.0-2",
   "description": "send 4xx 5xx response, compatible with connect",
   "main": "lib",
   "scripts": {
