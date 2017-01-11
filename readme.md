@@ -11,7 +11,7 @@
 * compatible with connect
 
 
-# Why made this?
+# Why was this made?
 
 [flyway][ho] is fully compatible with connect's middleware.
 So, first my attempt is using [errorhandler][eh].
